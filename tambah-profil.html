@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jodohin - Registrasi Profil</title>
+</head>
+<body>
+
+  <header>
+    <h1>Jodohin</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tambah-profil.html">Buat Profil</a></li>
+        <li><a href="detail-profil.html">Profil Saya</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Form Registrasi Profil Baru</h2>
+      <form action="#" method="post">
+        
+        <p>
+          <label for="nama_lengkap">Nama Lengkap:</label><br>
+          <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+        </p>
+
+        <p>
+          <label for="umur">Usia:</label><br>
+          <input type="number" id="umur" name="umur" min="18" required>
+        </p>
+
+        <p>
+          <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+          <select id="jenis_kelamin" name="jenis_kelamin" required>
+            <option value="">-- Pilih Jenis Kelamin --</option>
+            <option value="pria">Pria</option>
+            <option value="wanita">Wanita</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="lokasi">Kota Domisili:</label><br>
+          <input type="text" id="lokasi" name="lokasi" required>
+        </p>
+
+        <p>
+          <label for="hobi">Hobi / Minat:</label><br>
+          <input type="text" id="hobi" name="hobi" placeholder="Contoh: Membaca, Musik, Olahraga">
+        </p>
+
+        <p>
+          <label for="bio">Deskripsi Diri & Preferensi Pasangan:</label><br>
+          <textarea id="bio" name="bio" rows="5" cols="40" placeholder="Ceritakan sedikit tentang dirimu dan kriteria pasangan yang dicari..."></textarea>
+        </p>
+
+        <p>
+          <button type="submit">Simpan Profil</button>
+        </p>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jodohin. Aplikasi Pencarian Pasangan.</p>
+  </footer>
+
+</body>
+</html>
