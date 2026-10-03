@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+header {
+  background-color: #e91e63; 
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #c2185b;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 22px;
+  color: #e91e63;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f8bbd0;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+article {
+  background-color: #fff0f5;
+  border: 1px solid #f8bbd0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f8bbd0;
+  color: #880e4f;
+}
+
+/* Form Styling */
+form p {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c2185b;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  main {
+    padding: 15px;
+  }
+}
