@@ -1,53 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jodohin</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jodohin - Detail Profil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light">
 
-  <header>
-    <h1>Jodohin</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="tambah-profil.html">Buat Profil</a></li>
-        <li><a href="detail-profil.html">Profil Saya</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Jodohin ❤️</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarJodohin" aria-controls="navbarJodohin"
+                aria-expanded="false" aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarJodohin">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tambah-profil.html">Buat Profil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="detail-profil.html">Profil Saya</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <main>
-    <article>
-      <h2>Detail Profil: Rian Pratama</h2>
-      <img src="foto-rian-large.jpg" alt="Foto profil lengkap Rian Pratama berdiri di depan pegunungan">
-      
-      <section>
-        <h3>Informasi Umum</h3>
-        <p><strong>Usia:</strong> 25 Tahun</p>
-        <p><strong>Lokasi:</strong> Jakarta</p>
-        <p><strong>Pekerjaan:</strong> Software Engineer</p>
-        <p><strong>Hobi:</strong> Fotografi, Traveling, Kuliner</p>
-      </section>
+    <main class="container py-4 py-md-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4 p-md-5 text-center">
+                        <div class="rounded-circle bg-danger-subtle text-danger d-flex
+                            align-items-center justify-content-center mx-auto mb-3 profile-avatar">
+                            RP
+                        </div>
 
-      <section>
-        <h3>Tentang Saya</h3>
-        <p>Saya seorang pria yang suka menjelajahi tempat baru dan mendokumentasikan momen lewat kamera. Mencari pasangan yang supel dan suka diskusi hal-hal menarik.</p>
-      </section>
+                        <span class="badge text-bg-danger mb-3">Profil Anggota</span>
+                        <h1 class="h3 fw-bold">Rian Pratama</h1>
+                        <p class="text-secondary">25 tahun · Jakarta</p>
 
-      <section>
-        <h3>Aksi</h3>
-        <button type="button">Beri Suka (Like)</button>
-        <button type="button">Kirim Pesan Chat</button>
-      </section>
-    </article>
-  </main>
+                        <hr>
 
-  <footer>
-    <p>&copy; 2026 Jodohin. Aplikasi Pencarian Pasangan.</p>
-  </footer>
+                        <div class="text-start">
+                            <h2 class="h5 fw-bold">Tentang Saya</h2>
+                            <p>
+                                Saya senang mengenal orang baru dan mencari teman
+                                yang memiliki minat serta tujuan yang sejalan.
+                            </p>
 
+                            <h2 class="h5 fw-bold mt-4">Hobi dan Minat</h2>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge rounded-pill text-bg-light border">Fotografi</span>
+                                <span class="badge rounded-pill text-bg-light border">Traveling</span>
+                                <span class="badge rounded-pill text-bg-light border">Musik</span>
+                            </div>
+
+                            <h2 class="h5 fw-bold mt-4">Preferensi Pasangan</h2>
+                            <p class="text-secondary">
+                                Mencari pasangan yang memiliki minat serupa,
+                                komunikatif, dan senang mencoba hal baru.
+                            </p>
+                        </div>
+
+                        <div class="d-grid gap-2 d-sm-flex justify-content-center mt-4">
+                            <a href="index.html" class="btn btn-danger">
+                                Kembali ke Beranda
+                            </a>
+                            <a href="tambah-profil.html" class="btn btn-outline-danger">
+                                Buat Profil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top py-4 mt-4">
+        <div class="container text-center text-secondary">
+            &copy; 2026 Jodohin. Aplikasi Pencarian Pasangan.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

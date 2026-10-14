@@ -163,3 +163,10 @@ footer {
     padding: 15px;
   }
 }
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
