@@ -32,4 +32,25 @@ tambah-profil.html
 detail-profil.html 
 <img width="299" height="374" alt="image" src="https://github.com/user-attachments/assets/7d51cf32-72c8-40b2-bc85-ccf578a4bf11" />
 
+**WEEK 4**
+Tampilan Dekstop 
+index.html
+<img width="1887" height="906" alt="image" src="https://github.com/user-attachments/assets/66daebf8-a6e4-4006-831f-1b0a496257b2" />
+
+tambah-profil.html
+<img width="1896" height="906" alt="image" src="https://github.com/user-attachments/assets/b4f46a84-7f22-4cf2-863f-f43c424b6f1a" />
+
+detail-profil.html
+<img width="1897" height="912" alt="image" src="https://github.com/user-attachments/assets/a9187e42-9303-4cb9-a190-cb122e90414f" />
+
+Tampilan Mobile
+index.html
+<img width="500" height="802" alt="image" src="https://github.com/user-attachments/assets/07e0489b-a05a-49ff-b7dd-60742782c141" />
+
+tambah-profil.html 
+<img width="497" height="802" alt="image" src="https://github.com/user-attachments/assets/168f2fd7-7723-45f2-80be-70d12a4e1edd" />
+
+detail-profil.html 
+<img width="497" height="801" alt="image" src="https://github.com/user-attachments/assets/d602afd7-e04b-4dbc-99c6-52e9c0fb3695" />
+
 
