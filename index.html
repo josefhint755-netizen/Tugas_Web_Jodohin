@@ -4,150 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jodohin - Beranda</title>
-
+    <title>Jodohin - Temukan Pasanganmu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Jodohin ❤️</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Jodohin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarJodohin">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarJodohin">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="tambah-profil.html">Tambah Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="detail-profil.html">Detail Profil</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarJodohin"
-                aria-controls="navbarJodohin" aria-expanded="false"
-                aria-label="Buka navigasi">
-                <span class="navbar-toggler-icon"></span>
+<main class="container py-5">
+    <div id="notifikasi" class="alert d-none" role="status"></div>
+
+    <section class="hero-section text-center p-5 rounded mb-5">
+        <h1 class="display-5 fw-bold">Temukan Pasanganmu di Jodohin</h1>
+        <p class="lead">Kenalan dengan orang baru dan temukan pasangan yang cocok denganmu.</p>
+        <a href="tambah-profil.html" class="btn btn-danger btn-lg mt-2">Tambah Profil</a>
+    </section>
+
+    <section class="mb-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <div>
+                <h2 class="fw-bold">Rekomendasi Pasangan</h2>
+                <p class="text-secondary mb-0">Temukan profil yang sesuai dengan minatmu.</p>
+            </div>
+            <button type="button" id="tombolFilter" class="btn btn-outline-danger">
+                Tampilkan Pencarian
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarJodohin">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tambah-profil.html">Buat Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="detail-profil.html">Profil Saya</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </nav>
 
-    <main class="container py-4 py-md-5">
-        <section class="p-4 p-md-5 mb-4 bg-white rounded-4 shadow-sm">
-            <span class="badge text-bg-danger mb-3">Temukan pasanganmu</span>
-            <h1 class="fw-bold">Selamat Datang di Jodohin ❤️</h1>
-            <p class="text-secondary mb-4">
-                Temukan seseorang yang memiliki minat, hobi, dan preferensi
-                yang sama denganmu.
-            </p>
-            <a href="tambah-profil.html" class="btn btn-danger">
-                Buat Profil Sekarang
-            </a>
-        </section>
-
-        <section class="mb-5">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <div>
-                    <h2 class="h3 fw-bold mb-1">Rekomendasi Pasangan</h2>
-                    <p class="text-secondary mb-0">Kenalan dengan profil pilihan.</p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-12 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="rounded-circle bg-danger-subtle text-danger d-flex
-                                align-items-center justify-content-center mb-3 profile-avatar">
-                                RP
-                            </div>
-                            <h3 class="h5 fw-bold">Rian Pratama, 25</h3>
-                            <p class="text-secondary mb-2">📍 Jakarta</p>
-                            <p>Hobi: Fotografi, Traveling</p>
-                            <a href="detail-profil.html"
-                                class="btn btn-outline-danger w-100">
-                                Lihat Detail Profil
-                            </a>
-                        </div>
+        <div id="panelFilter" class="mb-4" style="display: none;">
+            <form id="formPencarian">
+                <div class="row g-2">
+                    <div class="col-12 col-md-6">
+                        <input type="text" id="inputCari" class="form-control" placeholder="Cari nama, hobi, atau kota...">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <select id="filterLokasi" class="form-select">
+                            <option value="">Semua kota</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Bandung">Bandung</option>
+                            <option value="Yogyakarta">Yogyakarta</option>
+                            <option value="Surabaya">Surabaya</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <button type="button" id="resetFilter" class="btn btn-secondary w-100">Reset</button>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="rounded-circle bg-danger-subtle text-danger d-flex
-                                align-items-center justify-content-center mb-3 profile-avatar">
-                                SN
-                            </div>
-                            <h3 class="h5 fw-bold">Siti Nurhaliza, 23</h3>
-                            <p class="text-secondary mb-2">📍 Bandung</p>
-                            <p>Hobi: Membaca, Kuliner</p>
-                            <a href="detail-profil.html"
-                                class="btn btn-outline-danger w-100">
-                                Lihat Detail Profil
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="h3 fw-bold mb-3">Riwayat Match</h2>
-
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle mb-0">
-                            <thead class="table-danger">
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>Usia</th>
-                                    <th>Lokasi</th>
-                                    <th>Status Match</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Rian Pratama</td>
-                                    <td>25</td>
-                                    <td>Jakarta</td>
-                                    <td>
-                                        <span class="badge text-bg-success">
-                                            Saling Menyukai
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Siti Nurhaliza</td>
-                                    <td>23</td>
-                                    <td>Bandung</td>
-                                    <td>
-                                        <span class="badge text-bg-warning">
-                                            Menunggu Respons
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white border-top py-4 mt-4">
-        <div class="container text-center text-secondary">
-            <p class="mb-0">&copy; 2026 Jodohin. Aplikasi Pencarian Pasangan.</p>
+            </form>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <p id="jumlahPasangan" class="text-secondary"></p>
+        <div id="daftarPasangan" class="row g-4"></div>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="fw-bold mb-3">Riwayat Match</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Nama</th>
+                        <th>Usia</th>
+                        <th>Lokasi</th>
+                        <th>Status Match</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelMatch"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-white text-center py-4">
+    <p class="mb-0">&copy; 2026 Jodohin. Temukan pasangan yang cocok untukmu.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
