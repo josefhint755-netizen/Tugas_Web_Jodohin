@@ -53,4 +53,21 @@ tambah-profil.html
 detail-profil.html 
 <img width="497" height="801" alt="image" src="https://github.com/user-attachments/assets/d602afd7-e04b-4dbc-99c6-52e9c0fb3695" />
 
+**WEEK 5**
+Sebelum
+<img width="1901" height="961" alt="image" src="https://github.com/user-attachments/assets/f92de6f8-b714-45f9-9b05-4bcaf38dab64" />
+
+Sesudah
+<img width="1896" height="961" alt="image" src="https://github.com/user-attachments/assets/c48682a9-c3a7-457c-991c-86d63b56a387" />
+
+Sebelum
+<img width="1637" height="542" alt="image" src="https://github.com/user-attachments/assets/fad42d9a-ea73-4976-98ee-8d9dd54d5984" />
+
+Sesudah
+<img width="1651" height="542" alt="image" src="https://github.com/user-attachments/assets/ffd21398-c3c7-45e3-ba9b-d27541e2124f" />
+
+
+
+
+
 
