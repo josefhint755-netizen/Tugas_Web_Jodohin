@@ -44,15 +44,8 @@ let daftarMatch = ambilData("jodohinMatch", [
 ]);
 
 function simpanData() {
-    localStorage.setItem(
-        "jodohinPasangan",
-        JSON.stringify(daftarPasangan)
-    );
-
-    localStorage.setItem(
-        "jodohinMatch",
-        JSON.stringify(daftarMatch)
-    );
+    localStorage.setItem("jodohinPasangan", JSON.stringify(daftarPasangan));
+    localStorage.setItem("jodohinMatch", JSON.stringify(daftarMatch));
 }
 
 function teksAman(teks) {
@@ -80,17 +73,13 @@ function cariPasangan(kata = "", lokasi = "") {
             pasangan.lokasi
         ).toLowerCase();
 
-        const cocokKata = informasi.includes(kata);
-        const cocokLokasi =
-            lokasi === "" ||
-            pasangan.lokasi.toLowerCase() === lokasi;
-
-        return cocokKata && cocokLokasi;
+        return informasi.includes(kata) &&
+            (lokasi === "" || pasangan.lokasi.toLowerCase() === lokasi);
     });
 }
 
 function tampilkanNotifikasi(pesan, jenis = "success") {
-    let notifikasi = $("#notifikasi");
+    const notifikasi = $("#notifikasi");
 
     if (!notifikasi.length) {
         return;
@@ -126,10 +115,7 @@ function tampilkanPasangan(data = daftarPasangan) {
         `);
     } else {
         const kartu = data.map(pasangan => {
-            const match = daftarMatch.find(
-                item => item.id === pasangan.id
-            );
-
+            const match = daftarMatch.find(item => item.id === pasangan.id);
             const sudahDisukai = Boolean(match && match.disukai);
 
             const inisial = pasangan.nama
@@ -158,8 +144,7 @@ function tampilkanPasangan(data = daftarPasangan) {
                             <p>Hobi: ${teksAman(pasangan.hobi)}</p>
 
                             <div class="d-grid gap-2">
-                                <a href="detail-profil.html"
-                                   class="btn btn-outline-danger">
+                                <a href="detail-profil.html" class="btn btn-outline-danger">
                                     Lihat Detail Profil
                                 </a>
 
@@ -186,9 +171,7 @@ function tampilkanPasangan(data = daftarPasangan) {
         wadah.html(kartu.join(""));
     }
 
-    $("#jumlahPasangan").text(
-        data.length + " pasangan ditemukan"
-    );
+    $("#jumlahPasangan").text(data.length + " pasangan ditemukan");
 }
 
 function tampilkanRiwayatMatch() {
@@ -199,9 +182,7 @@ function tampilkanRiwayatMatch() {
     }
 
     const baris = daftarMatch.map(match => {
-        const pasangan = daftarPasangan.find(
-            item => item.id === match.id
-        );
+        const pasangan = daftarPasangan.find(item => item.id === match.id);
 
         if (!pasangan) {
             return "";
@@ -234,11 +215,93 @@ function tampilkanRiwayatMatch() {
     tabel.html(baris.join(""));
 }
 
+const URL_API = "https://dummyjson.com/quotes?limit=6";
+
+function tampilkanLoading() {
+    $("#statusInspirasi").html(`
+        <div class="alert alert-info d-flex align-items-center gap-2">
+            <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <span>Sedang mengambil data inspirasi...</span>
+        </div>
+    `);
+
+    $("#daftarInspirasi").empty();
+}
+
+function tampilkanInspirasi(data) {
+    $("#statusInspirasi").html(`
+        <div class="alert alert-success">
+            Berhasil mengambil ${data.length} inspirasi dari API.
+        </div>
+    `);
+
+    const kartu = data.map(item => `
+        <div class="col-12 col-md-6 col-lg-4" data-id="${item.id}">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="text-danger fs-2 mb-2">“</div>
+                    <p class="fw-medium">
+                        ${teksAman(item.quote)}
+                    </p>
+                    <hr>
+                    <p class="text-secondary small mb-0">
+                        Penulis: ${teksAman(item.author)}
+                    </p>
+                </div>
+            </div>
+        </div>
+    `);
+
+    $("#daftarInspirasi").html(kartu.join(""));
+}
+
+function tampilkanError() {
+    $("#statusInspirasi").html(`
+        <div class="alert alert-danger">
+            <h5 class="alert-heading">Gagal Memuat Data</h5>
+            <p class="mb-3">
+                Data inspirasi tidak dapat diambil. Periksa koneksi internet
+                atau coba beberapa saat lagi.
+            </p>
+            <button type="button" id="tombolCobaLagi" class="btn btn-danger">
+                Coba Lagi
+            </button>
+        </div>
+    `);
+
+    $("#daftarInspirasi").empty();
+}
+
+async function muatInspirasi() {
+    tampilkanLoading();
+
+    try {
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        const response = await fetch(URL_API);
+
+        if (!response.ok) {
+            throw new Error("Gagal mengambil data inspirasi.");
+        }
+
+        const hasil = await response.json();
+
+        if (!hasil.quotes || hasil.quotes.length === 0) {
+            throw new Error("Data inspirasi tidak ditemukan.");
+        }
+
+        tampilkanInspirasi(hasil.quotes);
+    } catch (error) {
+        tampilkanError();
+    }
+}
+
 $(document).ready(function () {
     tampilkanPasangan();
     tampilkanRiwayatMatch();
 
-    // Tombol tampilkan dan sembunyikan pencarian
     $("#tombolFilter").on("click", function () {
         const tombol = $(this);
         const panel = $("#panelFilter");
@@ -252,7 +315,6 @@ $(document).ready(function () {
         });
     });
 
-    // Pencarian otomatis berdasarkan nama, hobi, atau kota
     $("#inputCari, #filterLokasi").on("input change", function () {
         const kata = $("#inputCari").val() || "";
         const lokasi = $("#filterLokasi").val() || "";
@@ -260,7 +322,6 @@ $(document).ready(function () {
         tampilkanPasangan(cariPasangan(kata, lokasi));
     });
 
-    // Proses pencarian ketika form dikirim
     $("#formPencarian").on("submit", function (event) {
         event.preventDefault();
 
@@ -278,7 +339,6 @@ $(document).ready(function () {
         tampilkanPasangan(cariPasangan(kata, lokasi));
     });
 
-    // Reset pencarian
     $("#resetFilter").on("click", function () {
         $("#inputCari").val("");
         $("#filterLokasi").val("");
@@ -287,21 +347,15 @@ $(document).ready(function () {
         tampilkanNotifikasi("Pencarian berhasil direset.");
     });
 
-    // Tombol suka dan batal suka
     $("#daftarPasangan").on("click", ".tombol-suka", function () {
         const id = Number($(this).attr("data-id"));
-
-        const pasangan = daftarPasangan.find(
-            item => item.id === id
-        );
+        const pasangan = daftarPasangan.find(item => item.id === id);
 
         if (!pasangan) {
             return;
         }
 
-        let match = daftarMatch.find(
-            item => item.id === id
-        );
+        let match = daftarMatch.find(item => item.id === id);
 
         if (!match) {
             match = {
@@ -323,52 +377,38 @@ $(document).ready(function () {
         tampilkanPasangan(cariPasangan(kata, lokasi));
         tampilkanRiwayatMatch();
 
-        if (match.disukai) {
-            tampilkanNotifikasi(
-                "Kamu menyukai " + pasangan.nama + "!"
-            );
-        } else {
-            tampilkanNotifikasi(
-                "Suka pada " + pasangan.nama + " dibatalkan.",
-                "warning"
-            );
-        }
+        tampilkanNotifikasi(
+            match.disukai
+                ? "Kamu menyukai " + pasangan.nama + "!"
+                : "Suka pada " + pasangan.nama + " dibatalkan.",
+            match.disukai ? "success" : "warning"
+        );
     });
 
-    // Hapus profil yang ditambahkan pengguna
     $("#daftarPasangan").on("click", ".tombol-hapus", function () {
         const id = Number($(this).attr("data-id"));
-
-        const pasangan = daftarPasangan.find(
-            item => item.id === id
-        );
+        const pasangan = daftarPasangan.find(item => item.id === id);
 
         if (!pasangan) {
             return;
         }
 
-        daftarPasangan = daftarPasangan.filter(
-            item => item.id !== id
-        );
-
-        daftarMatch = daftarMatch.filter(
-            item => item.id !== id
-        );
+        daftarPasangan = daftarPasangan.filter(item => item.id !== id);
+        daftarMatch = daftarMatch.filter(item => item.id !== id);
 
         simpanData();
 
-        const kata = $("#inputCari").val() || "";
-        const lokasi = $("#filterLokasi").val() || "";
-
-        tampilkanPasangan(cariPasangan(kata, lokasi));
-        tampilkanRiwayatMatch();
-
-        tampilkanNotifikasi(
-            "Profil " + pasangan.nama + " berhasil dihapus."
+        tampilkanPasangan(
+            cariPasangan(
+                $("#inputCari").val() || "",
+                $("#filterLokasi").val() || ""
+            )
         );
+
+        tampilkanRiwayatMatch();
+        tampilkanNotifikasi("Profil " + pasangan.nama + " berhasil dihapus.");
     });
 
-    // Validasi dan penyimpanan profil baru
     $("#formProfil").on("submit", function (event) {
         event.preventDefault();
 
@@ -396,11 +436,11 @@ $(document).ready(function () {
 
         const profilBaru = {
             id: Date.now(),
-            nama: nama,
-            usia: usia,
-            lokasi: lokasi,
-            hobi: hobi,
-            bio: bio
+            nama,
+            usia,
+            lokasi,
+            hobi,
+            bio
         };
 
         daftarPasangan.push(profilBaru);
@@ -415,5 +455,17 @@ $(document).ready(function () {
         setTimeout(function () {
             window.location.href = "index.html";
         }, 1800);
+    });
+
+    if ($("#daftarInspirasi").length) {
+        muatInspirasi();
+    }
+
+    $("#tombolMuatInspirasi").on("click", function () {
+        muatInspirasi();
+    });
+
+    $("#statusInspirasi").on("click", "#tombolCobaLagi", function () {
+        muatInspirasi();
     });
 });
