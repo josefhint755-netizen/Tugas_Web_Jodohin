@@ -66,6 +66,24 @@ Sebelum
 Sesudah
 <img width="1651" height="542" alt="image" src="https://github.com/user-attachments/assets/ffd21398-c3c7-45e3-ba9b-d27541e2124f" />
 
+**WEEK10**
+POST
+<img width="878" height="602" alt="image" src="https://github.com/user-attachments/assets/768a05cc-845f-4eb4-b153-586a98e440d4" />
+
+GET
+<img width="858" height="616" alt="image" src="https://github.com/user-attachments/assets/669f341e-ba76-4dcc-9802-2ac3f723dbe1" />
+
+PATCH
+<img width="850" height="591" alt="image" src="https://github.com/user-attachments/assets/2ae4e7c0-a104-4512-a2a0-a0b52e1b33ed" />
+
+DELETE
+<img width="860" height="527" alt="image" src="https://github.com/user-attachments/assets/2983800b-c21b-4332-8aef-1b4fc4b333ce" />
+<img width="853" height="516" alt="image" src="https://github.com/user-attachments/assets/9244b1e9-b578-4eec-a945-09fde874cd52" />
+
+
+
+
+
 
 
 
